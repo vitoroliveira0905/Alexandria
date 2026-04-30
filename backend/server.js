@@ -25,9 +25,18 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use(errorHandler);
+module.exports = app;
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-  console.log(`Documentação Swagger em http://localhost:${PORT}/api-docs`);
-});
+
+
+// Só sobe o servidor se este arquivo for executado diretamente (não via require/import)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Documentação Swagger em http://localhost:${PORT}/api-docs`);
+  });
+}
+
+
+

@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS loans (
   book_id     INT     NOT NULL,
   loan_date   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   due_date    DATE    NOT NULL,
-  return_date TIMESTAMP DEFAULT NULL,
+  return_date TIMESTAMP NULL DEFAULT NULL,
   status      ENUM('active', 'returned', 'overdue') NOT NULL DEFAULT 'active',
   PRIMARY KEY (id),
   CONSTRAINT fk_loans_user FOREIGN KEY (user_id) REFERENCES users(id)  ON DELETE CASCADE,
