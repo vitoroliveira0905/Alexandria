@@ -20,7 +20,7 @@ USE alexandria;
 -- ------------------------------------------------------------
 INSERT INTO users (name, email, password, role) VALUES
   ('Administrador', 'admin@alexandria.com',
-   '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
+   '$2a$10$hhezur6HV15ycu061oXgEehMm0i2Rw6L/0vc0Ic7iCMHdiGioda/.', 'admin'),
   ('Ana Souza', 'ana@email.com',
    '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'user'),
   ('Pedro Lima', 'pedro@email.com',
