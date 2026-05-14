@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'http://localhost:3001/api';
 const AUTH_TOKEN_KEY = 'alexandria:authToken';
 const AUTH_USER_KEY = 'alexandria:authUser';
 

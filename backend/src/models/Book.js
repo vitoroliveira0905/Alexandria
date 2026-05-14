@@ -46,6 +46,14 @@ const Book = {
     await pool.query('DELETE FROM books WHERE id = ?', [id]);
   },
 
+  async hasLoans(id) {
+    const [[{ total }]] = await pool.query(
+      'SELECT COUNT(*) AS total FROM loans WHERE book_id = ?',
+      [id]
+    );
+    return Number(total) > 0;
+  },
+
   async decrementAvailable(id) {
     await pool.query(
       'UPDATE books SET available_qty = available_qty - 1 WHERE id = ? AND available_qty > 0',

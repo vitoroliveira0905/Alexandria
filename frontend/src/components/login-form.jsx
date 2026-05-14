@@ -32,8 +32,10 @@ export function LoginForm({
     event.preventDefault()
 
     try {
-      await login()
-      router.replace("/")
+      const data = await login()
+      const role = data?.user?.role
+      const target = role === "admin" ? "/admin/books" : "/"
+      router.replace(target)
     } catch {
       // O erro já é exposto pelo hook via `error`
     }

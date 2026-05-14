@@ -67,6 +67,13 @@ async function deleteBook(req, res, next) {
     const existing = await Book.findById(req.params.id);
     if (!existing) return res.status(404).json({ message: 'Livro não encontrado' });
 
+    const hasLoans = await Book.hasLoans(req.params.id);
+    if (hasLoans) {
+      return res.status(409).json({
+        message: 'Livro possui emprestimos vinculados e nao pode ser removido',
+      });
+    }
+
     await Book.remove(req.params.id);
     res.status(204).send();
   } catch (err) {
